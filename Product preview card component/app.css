@@ -131,15 +131,108 @@ table {
 /* CSS reset */
 
 :root {
-    --dark-cyan: hsl(158, 36%, 37%);
-    --cream: hsl(30, 38%, 92%);
-    --very-dark-blue: hsl(212, 21%, 14%);
-    --dark-grayish-blue: hsl(228, 12%, 48%);
-    --White: hsl(0, 0%, 100%) ;
+  --dark-cyan: hsl(158, 36%, 37%);
+  --cream: hsl(30, 38%, 92%);
+  --very-dark-blue: hsl(212, 21%, 14%);
+  --dark-grayish-blue: hsl(228, 12%, 48%);
+  --White: hsl(0, 0%, 100%);
 }
 
 /* Vars */
 
 html {
   font-size: 14px;
+}
+
+body {
+  background-color: var(--cream);
+  width: 100%;
+  min-height: 100%;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 1.5fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "image-block image-block"
+    "text-block text-block";
+  width: 90%;
+  height: auto;
+  margin: 7.5% auto;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.image-block {
+  grid-area: image-block;
+  display: inline-block;
+}
+
+.image-block img {
+  display: inline-block;
+  width: 100%;
+  max-width: 375px;
+}
+
+.text-block {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 0.5fr 1fr 2fr repeat(2, 1fr);
+  gap: 0px 0px;
+  grid-template-areas:
+    "pre-product pre-product"
+    "product-name product-name"
+    "product-description product-description"
+    "final-price initial-price"
+    "cta-atcart cta-atcart";
+  grid-area: text-block;
+  width: 85%;
+  height: 90%;
+  margin: auto;
+  align-items: center;
+  justify-content: flex-start;
+}
+.pre-product {
+  grid-area: pre-product;
+  font-family: Montserrat, Verdana, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--dark-grayish-blue);
+}
+.product-name {
+  grid-area: product-name;
+  font-family: Fraunces, Montserrat, Verdana, sans-serif;
+  font-weight: 700;
+  font-size: 2em;
+  color: var(--very-dark-blue);
+}
+.product-description {
+  grid-area: product-description;
+  color: var(--dark-grayish-blue);
+  font-family: Montserrat, Verdana, sans-serif;
+}
+.final-price {
+  grid-area: final-price;
+  color: var(--dark-cyan);
+  font-family: Fraunces, Montserrat, Verdana, sans-serif;
+  font-weight: 700;
+  font-size: 2.2em;
+}
+.initial-price {
+  grid-area: initial-price;
+  display: inline-block;
+  font-family: Montserrat, Verdana, sans-serif;
+  text-decoration: line-through;
+  color: var(--dark-grayish-blue);
+}
+.cta-atcart {
+  grid-area: cta-atcart;
 }
