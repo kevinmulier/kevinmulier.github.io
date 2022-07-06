@@ -258,7 +258,8 @@ main {
   padding: 20px 0px;
 }
 
-.cta-atcart:hover {
+.cta-atcart:hover,
+.cta-atcart:focus {
   background-color: #2b5d4b;
 }
 
